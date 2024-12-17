@@ -1,13 +1,17 @@
 import type { defineConfig } from "astro/config";
 
+export const On = process.env["NODE_ENV"] === "development";
+
 export default (await import("astro/config")).defineConfig({
 	srcDir: "./Source",
 	publicDir: "./Public",
 	outDir: "./Target",
-	// TODO Place your site URL here
-	// site: "",
-	compressHTML: true,
-	prefetch: true,
+	site: On ? "HTTP://localhost" : "HTTPS://Status.Editor.Land",
+	compressHTML: !On,
+	prefetch: {
+		defaultStrategy: "hover",
+		prefetchAll: true,
+	},
 	server: {
 		port: 9999,
 	},
@@ -20,10 +24,12 @@ export default (await import("astro/config")).defineConfig({
 			? (await import("astrojs-service-worker")).default()
 			: null,
 		(await import("@astrojs/sitemap")).default(),
-		(await import("@playform/inline")).default({ Logger: 1 }),
-		(await import("@playform/format")).default({ Logger: 1 }),
-		(await import("@playform/compress")).default({ Logger: 1 }),
-	],
+		!On ? (await import("@playform/inline")).default({ Logger: 1 }) : null,	
+		!On ? (await import("@playform/format")).default({ Logger: 1 }) : null,
+		!On
+			? (await import("@playform/compress")).default({ Logger: 1 })
+			: null,
+			],
 	experimental: {
 		clientPrerender: true,
 		contentIntellisense: true,
@@ -36,7 +42,7 @@ export default (await import("astro/config")).defineConfig({
 			preserveSymlinks: true,
 		},
 		css: {
-			devSourcemap: true,
+			devSourcemap: On,
 			transformer: "postcss",
 		},
 	},
