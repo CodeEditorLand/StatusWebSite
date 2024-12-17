@@ -1,21 +1,14 @@
 {
-	"name": "@playform/starter",
+	"name": "@website/status_editor_land",
 	"version": "0.0.1",
 	"private": true,
-	"description": "📄 Starter —",
-	"keywords": [
-		"astro",
-		"starter",
-		"skeleton",
-		"playform"
-	],
-	"homepage": "HTTPS://GitHub.Com/PlayForm/Starter#readme",
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/StatusWebSite#readme",
 	"bugs": {
-		"url": "HTTPS://GitHub.Com/PlayForm/Starter/issues"
+		"url": "HTTPS://GitHub.Com/CodeEditorLand/StatusWebSite/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/PlayForm/Starter.git"
+		"url": "git+https://github.com/CodeEditorLand/StatusWebSite.git"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {
