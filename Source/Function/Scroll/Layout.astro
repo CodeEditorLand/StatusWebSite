@@ -1,0 +1,11 @@
+---
+import Code from "@Function/Scroll/Code";
+
+interface Props {
+	Text?: string;
+}
+---
+
+<>
+	<Code client:only="solid-js" Text={Astro.props.Text ?? ""} Font={2} />
+</>

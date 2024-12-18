@@ -1,5 +1,6 @@
 import { fontFamily } from "tailwindcss/defaultTheme";
 
+/** @type {import('tailwindcss').Config} */
 export default {
 	content: [
 		"./Public/**/*.html",
@@ -14,7 +15,7 @@ export default {
 		},
 		extend: {
 			transitionTimingFunction: {
-				apple: "cubic-bezier(0.21, 0.1, 0.21, 1)",
+				Ease: "cubic-bezier(0.21, 0.1, 0.21, 1)",
 			},
 			fontFamily: {
 				sans: ["Albert Sans", ...fontFamily.sans],
@@ -42,4 +43,7 @@ export default {
 		require("@tailwindcss/typography"),
 		require("@tailwindcss/aspect-ratio"),
 	],
+
+	// TODO: Link that to the dynamic components inside ./Source/Function/Scroll/Layout.astro
+	safelist: ["h-2", "w-2"],
 };
