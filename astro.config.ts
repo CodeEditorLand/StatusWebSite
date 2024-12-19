@@ -90,5 +90,17 @@ export default (await import("astro/config")).defineConfig({
 			devSourcemap: On,
 			transformer: "postcss",
 		},
+		plugins: [
+			// Add crossorigin to script tags
+			{
+				name: "crossorigin",
+				transformIndexHtml(html) {
+					return html.replace(
+						/<script/g,
+						'<script crossorigin="anonymous"',
+					);
+				},
+			},
+		],
 	},
 }) as typeof defineConfig;
