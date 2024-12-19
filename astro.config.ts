@@ -94,8 +94,8 @@ export default (await import("astro/config")).defineConfig({
 			// Add crossorigin to script tags
 			{
 				name: "crossorigin",
-				transformIndexHtml(html) {
-					return html.replace(
+				transform(code, id, options) {
+					return code.replace(
 						/<script/g,
 						'<script crossorigin="anonymous"',
 					);
