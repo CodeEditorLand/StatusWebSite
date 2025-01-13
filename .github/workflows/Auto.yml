@@ -60,7 +60,7 @@ jobs:
                   echo "Update: $(date)" > .github/Update.md
 
             - run: |
-                  git config user.name 'Nikola Hristov's Bench'
+                  git config user.name 'Nikola Hristov\'s Bench'
                   git config user.email 'bench@playform.cloud'
                   git add .
                   git commit -a --allow-empty-message -m ""
