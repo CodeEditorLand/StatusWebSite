@@ -5,10 +5,7 @@ concurrency:
     cancel-in-progress: true
 
 permissions:
-    security-events: write
     contents: write
-    pull-requests: write
-    issues: write
 
 on:
     workflow_dispatch:
