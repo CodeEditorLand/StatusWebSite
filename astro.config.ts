@@ -12,7 +12,7 @@ export default (await import("astro/config")).defineConfig({
 				default: "GitHub Token API Stream",
 			}),
 		},
-		validateSecrets: false,
+		validateSecrets: true,
 	},
 	srcDir: "./Source",
 	publicDir: "./Public",
