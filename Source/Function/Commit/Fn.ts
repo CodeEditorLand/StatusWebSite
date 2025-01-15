@@ -6,7 +6,6 @@ const Octokit = new (await import("@octokit/rest")).Octokit({
 
 export const Fn = async (_Owner, _Repository, _SHA) => {
 	try {
-
 		return [];
 	} catch (_Error) {
 		console.error("Cannot Commit:", _Error);
