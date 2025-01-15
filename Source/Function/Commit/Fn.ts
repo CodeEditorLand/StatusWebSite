@@ -1,12 +1,12 @@
-import { getSecret, type TOKEN_GITHUB } from "astro:env/server";
+import { getSecret, type TOKEN_GITHUB_COMMIT } from "astro:env/server";
 
 const Octokit = new (await import("@octokit/rest")).Octokit({
-	auth: getSecret("TOKEN_GITHUB") as typeof TOKEN_GITHUB,
+	auth: getSecret("TOKEN_GITHUB_COMMIT") as typeof TOKEN_GITHUB_COMMIT,
 });
 
 export const Fn = async (_Owner, _Repository, _SHA) => {
 	try {
-		
+
 		return [];
 	} catch (_Error) {
 		console.error("Cannot Commit:", _Error);
