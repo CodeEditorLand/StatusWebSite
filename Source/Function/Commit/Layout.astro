@@ -1,41 +1,59 @@
 ---
 const { user, repo } = Astro.props;
 
-const Last = (
-	await (
-		await fetch(
-			`https://api.github.com/repos/${user}/${repo}/commits?per_page=1`,
-		)
-	).json()
-)[0];
+const Last = await (
+	await fetch(
+		`https://api.github.com/repos/${user}/${repo}/commits?per_page=10`,
+	)
+).json();
 ---
 
 <div>
 	{
-		Last && (
+		Last.length > 0 ? (
 			<>
-				<p>
-					<strong>Message:</strong> {Last.commit.message}
-				</p>
+				<h1>Latest Commits</h1>
 
-				<p>
-					<strong>Author:</strong> {Last.commit.author.name}
-				</p>
+				<h2>
+					{user}/{repo}
+				</h2>
 
-				<p>
-					<strong>Date:</strong>{" "}
-					{new Date(Last.commit.author.date).toLocaleDateString()}
-				</p>
+				{Last.map(
+					(Commit: {
+						message: string;
+						author: {
+							name: string;
+							date: string;
+						};
+						html_url: string;
+					}) => (
+						<div>
+							<p>
+								<strong>Message:</strong> {Commit.message}
+							</p>
 
-				<a
-					href={Last.html_url}
-					target="_blank"
-					rel="noopener noreferrer">
-					View on GitHub
-				</a>
+							<p>
+								<strong>Author:</strong> {Commit.author.name}
+							</p>
+							<p>
+								<strong>Date:</strong>{" "}
+								{new Date(
+									Commit.author.date,
+								).toLocaleDateString()}
+							</p>
+
+							<a
+								href={Commit.html_url}
+								target="_blank"
+								rel="noopener noreferrer">
+								View on GitHub
+							</a>
+						</div>
+					),
+				)}
 			</>
+		) : (
+			<p>No commits found.</p>
 		)
 	}
-
-	{!Last && <p>No commits found.</p>}
 </div>
