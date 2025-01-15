@@ -1,8 +1,19 @@
-import type { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 
 export const On = process.env["NODE_ENV"] === "development";
 
 export default (await import("astro/config")).defineConfig({
+	env: {
+		schema: {
+			Token: envField.string({
+				context: "server",
+				access: "secret",
+				optional: false,
+				default: "GitHub Token API Stream",
+			}),
+		},
+		validateSecrets: true,
+	},
 	srcDir: "./Source",
 	publicDir: "./Public",
 	outDir: "./Target",
