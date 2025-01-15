@@ -5,14 +5,14 @@ export const On = process.env["NODE_ENV"] === "development";
 export default (await import("astro/config")).defineConfig({
 	env: {
 		schema: {
-			Token: envField.string({
+			TOKEN_GITHUB: envField.string({
 				context: "server",
 				access: "secret",
 				optional: false,
 				default: "GitHub Token API Stream",
 			}),
 		},
-		validateSecrets: true,
+		validateSecrets: false,
 	},
 	srcDir: "./Source",
 	publicDir: "./Public",

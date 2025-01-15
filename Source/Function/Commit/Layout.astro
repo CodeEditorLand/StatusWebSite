@@ -1,4 +1,6 @@
 ---
+// import { getSecret, TOKEN_GITHUB } from "astro:env/server";
+
 const { user, repo } = Astro.props;
 
 const Last = await (
@@ -6,8 +8,6 @@ const Last = await (
 		`https://api.github.com/repos/${user}/${repo}/commits?per_page=10`,
 	)
 ).json();
-
-console.log(Last);
 ---
 
 <div>
@@ -18,16 +18,16 @@ console.log(Last);
 					<thead class="bg-stone-50 text-xs uppercase text-stone-700 dark:bg-stone-700 dark:text-stone-400">
 						<tr>
 							<th scope="col" class="px-6 py-3">
-								Message
+								COMMIT MESSAGE
 							</th>
 							<th scope="col" class="px-6 py-3">
-								Author
+								AUTHOR
 							</th>
 							<th scope="col" class="px-6 py-3 text-center">
-								Date
+								DATE
 							</th>
 							<th scope="col" class="px-6 py-3 text-center">
-								Link
+								HREF
 							</th>
 						</tr>
 					</thead>
