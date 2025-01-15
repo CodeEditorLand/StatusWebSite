@@ -4,7 +4,15 @@ const Octokit = new (await import("@octokit/rest")).Octokit({
 	auth: getSecret("TOKEN_GITHUB") as typeof TOKEN_GITHUB,
 });
 
-export const Fn = async (owner, repo, commitSha) => {
+export const Fn = async (_Owner, _Repository, _SHA) => {
+	try {
+		
+		return [];
+	} catch (_Error) {
+		console.error("Cannot Commit:", _Error);
+		return [];
+	}
+
 	// try {
 	// 	// Check for submodule updates (.gitmodules changes)
 	// 	const submoduleChanges = (
