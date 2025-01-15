@@ -4,7 +4,10 @@ import "@Stylesheet/Base.css";
 import { Head } from "astro-capo";
 import { ClientRouter } from "astro:transitions";
 
-const { Title = "Status / WebSite / Land", Description = "Status website for the Land repository." } = Astro.props;
+const {
+	Title = "Status / WebSite / Land",
+	Description = "Status website for the Land repository.",
+} = Astro.props;
 
 interface Props {
 	Title?: string;
