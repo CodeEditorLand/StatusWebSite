@@ -2,32 +2,33 @@
 // const { user, repo } = Astro.props;
 
 const UUID = (await import("@Function/Commit/UUID/Fn.js")).default();
+
+const Data = [
+	[
+		"Tiger Nixon",
+		"System Architect",
+		"Edinburgh",
+		"5421",
+		"2011/04/25",
+		"$3,120",
+	],
+	[
+		"Garrett Winters",
+		"Director",
+		"Edinburgh",
+		"8422",
+		"2011/07/25",
+		"$5,300",
+	],
+];
 ---
 
-<commit-table data-uuid={UUID}>
-	<table>
-		<thead>
-			<tr>
-				<th>Commit</th>
-				<th>Author</th>
-				<th>Date</th>
-				<th>Message</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-			</tr>
-		</tbody>
-	</table>
+<commit-table data-uuid={UUID} data-data={JSON.stringify(Data)}>
+	<table></table>
 </commit-table>
 
 <script>
 	import DataTable from "datatables.net-dt";
-	import $ from "jquery";
 	import jszip from "jszip";
 	import pdfmake from "pdfmake";
 
@@ -48,15 +49,35 @@ const UUID = (await import("@Function/Commit/UUID/Fn.js")).default();
 	import "datatables.net-select-dt";
 	import "datatables.net-staterestore-dt";
 
-	class Commit extends HTMLDivElement {
+	class Commit extends HTMLElement {
 		connectedCallback() {
-			const UUID = this.dataset["uuid"];
-
-			console.log(UUID);
+			let table = new DataTable(
+				`[data-uuid=${this.dataset["uuid"]}] table`,
+				{
+					// data: JSON.parse(this.dataset["data"] ?? "[]"),
+					data: [
+						{
+							"name": "Tiger Nixon",
+							"position": "System Architect",
+							"salary": "$3,120",
+							"start_date": "2011/04/25",
+							"office": "Edinburgh",
+							"extn": "5421",
+						},
+						{
+							"name": "Garrett Winters",
+							"position": "Director",
+							"salary": "$5,300",
+							"start_date": "2011/07/25",
+							"office": "Edinburgh",
+							"extn": "8422",
+						},
+					],
+					// responsive: true,
+				},
+			);
 		}
 	}
 
-	customElements.define("commit-table", Commit, {
-		extends: "div",
-	});
+	customElements.define("commit-table", Commit);
 </script>
