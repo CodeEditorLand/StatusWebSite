@@ -42,6 +42,8 @@
 		"datatables.net-colreorder-dt": "2.0.4",
 		"datatables.net-dt": "2.2.1",
 		"datatables.net-fixedcolumns-dt": "5.0.4",
+		"datatables.net-fixedheader-dt": "4.0.1",
+		"datatables.net-keytable-dt": "2.12.1",
 		"dotenv": "16.4.7",
 		"firebase": "11.1.0",
 		"jquery": "3.7.1",

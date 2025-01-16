@@ -20,6 +20,8 @@ import "datatables.net-searchpanes-dt";
 import "datatables.net-select-dt";
 import "datatables.net-staterestore-dt";
 
+import _UUID from "@Function/Commit/UUID/Fn.js";
+
 const { user, repo } = Astro.props;
 
 const Last = await (
@@ -38,13 +40,17 @@ export interface Commit {
 	};
 	html_url: string;
 }
+
+const UU
 ---
 
 <div>
 	{
 		Last.length > 0 ? (
 			<>
-				<table class="w-full text-left text-sm text-stone-500 dark:text-stone-400">
+				<table
+					class="w-full text-left text-sm text-stone-500 dark:text-stone-400"
+					id={UUID()}>
 					<thead class="bg-stone-50 text-xs uppercase text-stone-700 dark:bg-stone-700 dark:text-stone-400">
 						<tr>
 							<th scope="col" class="px-6 py-3">
@@ -113,7 +119,9 @@ export interface Commit {
 	}
 </div>
 
-<script>
+<script define:vars={{}}>
+	new DataTable("#{UUID()}");
+
 	document
 		.querySelectorAll<HTMLSpanElement>("span[data-date]")
 		.forEach((element) => {
