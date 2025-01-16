@@ -6,10 +6,10 @@ const { user, repo } = Astro.props;
 const UUID = _UUID();
 ---
 
-<commit-table data-UUID={UUID}> </commit-table>
+<commit-table data-uuid={UUID}> </commit-table>
 
 <script>
-	// import DataTable from "datatables.net-dt";
+	import DataTable from "datatables.net-dt";
 	// import jszip from "jszip";
 	// import pdfmake from "pdfmake";
 
@@ -32,7 +32,7 @@ const UUID = _UUID();
 
 	class Commit extends HTMLElement {
 		connectedCallback() {
-			const UUID = this.dataset.UUID;
+			const UUID = this.dataset["uuid"];
 
 			console.log(UUID);
 
