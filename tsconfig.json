@@ -1,27 +1,25 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"compilerOptions": {
-		// "baseUrl": "./",
-		// "emitDeclarationOnly": false,
-		// "jsx": "preserve",
-		// "jsxFactory": "createComponent",
-		// "jsxFragmentFactory": "Fragment",
-		// "jsxImportSource": "solid-js",
-		// "lib": ["ESNext", "DOM", "DOM.Iterable"],
-		// "moduleResolution": "Bundler",
-		// "noEmit": true,
-		// "outDir": "Target",
-		// "rootDir": ".",
-		// // "types": ["astro/client", "astro/env"],
-		// "plugins": [
-		// 	{
-		// 		"name": "@astrojs/ts-plugin"
-		// 	}
-		// ],
-
+		"baseUrl": "./",
+		"emitDeclarationOnly": false,
+		"jsx": "preserve",
+		"jsxFactory": "createComponent",
+		"jsxFragmentFactory": "Fragment",
+		"jsxImportSource": "solid-js",
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"moduleResolution": "Bundler",
+		"noEmit": true,
+		"outDir": "Target",
+		"rootDir": ".",
+		"types": ["astro/client", "astro/env"],
+		"plugins": [
+			{
+				"name": "@astrojs/ts-plugin"
+			}
+		]
 	},
 	"extends": "@playform/build/tsconfig",
-	// "extends": "astro/tsconfigs/base",
 	"include": ["Source", ".astro/types.d.ts"],
 	"exclude": ["Target"]
 }
