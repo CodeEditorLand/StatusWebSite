@@ -29,7 +29,7 @@ const UUID = _UUID();
 
 <script>
 	import DataTable from "datatables.net-dt";
-	import $ from "jquery";
+	// import $ from "jquery";
 	import jszip from "jszip";
 	import pdfmake from "pdfmake";
 
@@ -55,12 +55,16 @@ const UUID = _UUID();
 			const UUID = this.dataset["uuid"];
 
 			console.log(UUID);
+
+			let table = new DataTable(`#${UUID} table`, {
+				responsive: true,
+			});
+
+			console.log(table);
 		}
 	}
 
 	customElements.define("commit-table", Commit, {
 		extends: "div",
 	});
-
-	
 </script>
