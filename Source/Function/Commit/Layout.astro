@@ -1,9 +1,7 @@
 ---
-import _UUID from "@Function/Commit/UUID/Fn.js";
-
 // const { user, repo } = Astro.props;
 
-const UUID = _UUID();
+const UUID = (await import("@Function/Commit/UUID/Fn.js")).default();
 ---
 
 <commit-table data-uuid={UUID}>
@@ -55,8 +53,6 @@ const UUID = _UUID();
 			const UUID = this.dataset["uuid"];
 
 			console.log(UUID);
-
-			console.log(this);
 		}
 	}
 
