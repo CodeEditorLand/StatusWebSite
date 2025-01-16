@@ -9,32 +9,34 @@ const UUID = _UUID();
 <commit-table data-UUID={UUID}> </commit-table>
 
 <script>
-	import DataTable from "datatables.net-dt";
-	import jszip from "jszip";
-	import pdfmake from "pdfmake";
+	// import DataTable from "datatables.net-dt";
+	// import jszip from "jszip";
+	// import pdfmake from "pdfmake";
 
-	import "datatables.net-buttons-dt";
-	import "datatables.net-buttons/js/buttons.colVis.mjs";
-	import "datatables.net-buttons/js/buttons.html5.mjs";
-	import "datatables.net-buttons/js/buttons.print.mjs";
-	import "datatables.net-colreorder-dt";
-	import "datatables.net-fixedcolumns-dt";
-	import "datatables.net-fixedheader-dt";
-	import "datatables.net-keytable-dt";
-	import "datatables.net-responsive-dt";
-	import "datatables.net-rowgroup-dt";
-	import "datatables.net-rowreorder-dt";
-	import "datatables.net-scroller-dt";
-	import "datatables.net-searchbuilder-dt";
-	import "datatables.net-searchpanes-dt";
-	import "datatables.net-select-dt";
-	import "datatables.net-staterestore-dt";
+	// import "datatables.net-buttons-dt";
+	// import "datatables.net-buttons/js/buttons.colVis.mjs";
+	// import "datatables.net-buttons/js/buttons.html5.mjs";
+	// import "datatables.net-buttons/js/buttons.print.mjs";
+	// import "datatables.net-colreorder-dt";
+	// import "datatables.net-fixedcolumns-dt";
+	// import "datatables.net-fixedheader-dt";
+	// import "datatables.net-keytable-dt";
+	// import "datatables.net-responsive-dt";
+	// import "datatables.net-rowgroup-dt";
+	// import "datatables.net-rowreorder-dt";
+	// import "datatables.net-scroller-dt";
+	// import "datatables.net-searchbuilder-dt";
+	// import "datatables.net-searchpanes-dt";
+	// import "datatables.net-select-dt";
+	// import "datatables.net-staterestore-dt";
 
 	class Commit extends HTMLElement {
 		connectedCallback() {
 			const UUID = this.dataset.UUID;
 
 			console.log(UUID);
+
+			console.log(this);
 		}
 	}
 
