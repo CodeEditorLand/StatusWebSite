@@ -124,7 +124,7 @@ const UUID = _UUID();
 	new DataTable(`#${UUID}`);
 
 	document
-		.querySelectorAll("span[data-date]")
+		.querySelectorAll<HTMLSpanElement>("span[data-date]")
 		.forEach((element) => {
 			element.textContent = new Date(
 				element.dataset["date"] as string,
