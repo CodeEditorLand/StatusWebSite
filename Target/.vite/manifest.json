@@ -1,4 +1,10 @@
 {
+  "Source/Function/Commit/Layout.astro?astro&type=script&index=0&lang.ts": {
+    "file": "_astro/Layout.astro_astro_type_script_index_0_lang.CD0Mlf1S.js",
+    "name": "Layout.astro_astro_type_script_index_0_lang",
+    "src": "Source/Function/Commit/Layout.astro?astro&type=script&index=0&lang.ts",
+    "isEntry": true
+  },
   "Source/Layout/Base.astro?astro&type=script&index=0&lang.ts": {
     "file": "_astro/Base.astro_astro_type_script_index_0_lang.CEGt5QMY.js",
     "name": "Base.astro_astro_type_script_index_0_lang",

@@ -1,7 +1,7 @@
 ---
 import _UUID from "@Function/Commit/UUID/Fn.js";
 
-const { user, repo } = Astro.props;
+// const { user, repo } = Astro.props;
 
 const UUID = _UUID();
 ---
@@ -21,7 +21,7 @@ const UUID = _UUID();
 				<td>1</td>
 				<td>2</td>
 				<td>3</td>
-				<td>5</td>
+				<td>4</td>
 			</tr>
 		</tbody>
 	</table>
@@ -29,7 +29,7 @@ const UUID = _UUID();
 
 <script>
 	import DataTable from "datatables.net-dt";
-	// import $ from "jquery";
+	import $ from "jquery";
 	import jszip from "jszip";
 	import pdfmake from "pdfmake";
 
@@ -56,11 +56,7 @@ const UUID = _UUID();
 
 			console.log(UUID);
 
-			let table = new DataTable(`#${UUID} table`, {
-				responsive: true,
-			});
-
-			console.log(table);
+			console.log(this);
 		}
 	}
 
