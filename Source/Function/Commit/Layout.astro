@@ -41,7 +41,7 @@ export interface Commit {
 	html_url: string;
 }
 
-const UU
+const UUID = _UUID();
 ---
 
 <div>
@@ -50,7 +50,7 @@ const UU
 			<>
 				<table
 					class="w-full text-left text-sm text-stone-500 dark:text-stone-400"
-					id={UUID()}>
+					id={UUID}>
 					<thead class="bg-stone-50 text-xs uppercase text-stone-700 dark:bg-stone-700 dark:text-stone-400">
 						<tr>
 							<th scope="col" class="px-6 py-3">
@@ -119,8 +119,9 @@ const UU
 	}
 </div>
 
-<script define:vars={{}}>
-	new DataTable("#{UUID()}");
+<script define:vars={{ UUID }}>
+	
+	new DataTable(`#${UUID}`);
 
 	document
 		.querySelectorAll<HTMLSpanElement>("span[data-date]")
