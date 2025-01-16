@@ -30,7 +30,7 @@ const u = ({ Text: e, Font: i } = { Text: "", Font: 1 }) => {
 				let e;
 				const t = 4 * E().length,
 					r = (a) => {
-						a - M() >= 50 && (p((e) => (e + 1) % t), j(a)),
+						a - M() >= 50 && (p((e) => (e - 0.2 + t) % t), j(a)),
 							(e = requestAnimationFrame(r));
 					};
 				return (
