@@ -7,11 +7,29 @@ const UUID = _UUID();
 ---
 
 <commit-table data-uuid={UUID}>
-	
+	<table>
+		<thead>
+			<tr>
+				<th>Commit</th>
+				<th>Author</th>
+				<th>Date</th>
+				<th>Message</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+			</tr>
+		</tbody>
+	</table>
 </commit-table>
 
 <script>
 	import DataTable from "datatables.net-dt";
+	import $ from "jquery";
 	import jszip from "jszip";
 	import pdfmake from "pdfmake";
 
@@ -35,10 +53,14 @@ const UUID = _UUID();
 	class Commit extends HTMLDivElement {
 		connectedCallback() {
 			const UUID = this.dataset["uuid"];
+
+			console.log(UUID);
 		}
 	}
 
 	customElements.define("commit-table", Commit, {
 		extends: "div",
 	});
+
+	
 </script>
