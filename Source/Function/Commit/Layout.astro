@@ -72,12 +72,13 @@ const UUID = (await import("@Function/Commit/UUID/Fn.js")).default();
 			new DataTable(`[data-uuid=${this.dataset["uuid"]}] table`, {
 				data: JSON.parse(this.dataset["data"] ?? "[]"),
 				responsive: true,
-				paging: false,
+				paging: true,
 				fixedColumns: true,
 				fixedHeader: true,
 				scrollCollapse: true,
 				scroller: true,
 				scrollY: "200px",
+				processing: true,
 
 				// @deprecated
 				// pagingType: "full_numbers",
