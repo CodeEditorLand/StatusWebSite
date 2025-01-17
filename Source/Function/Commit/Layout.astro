@@ -1,18 +1,5 @@
 ---
 import "datatables.net-dt/css/dataTables.dataTables.css";
-import "datatables.net-buttons-dt/css/buttons.dataTables.css";
-import "datatables.net-colreorder-dt/css/colReorder.dataTables.css";
-import "datatables.net-fixedcolumns-dt/css/fixedColumns.dataTables.css";
-import "datatables.net-fixedheader-dt/css/fixedHeader.dataTables.css";
-import "datatables.net-keytable-dt/css/keyTable.dataTables.css";
-import "datatables.net-responsive-dt/css/responsive.dataTables.css";
-import "datatables.net-rowgroup-dt/css/rowGroup.dataTables.css";
-import "datatables.net-rowreorder-dt/css/rowReorder.dataTables.css";
-import "datatables.net-scroller-dt/css/scroller.dataTables.css";
-import "datatables.net-searchbuilder-dt/css/searchBuilder.dataTables.css";
-import "datatables.net-searchpanes-dt/css/searchPanes.dataTables.css";
-import "datatables.net-select-dt/css/select.dataTables.css";
-import "datatables.net-staterestore-dt/css/stateRestore.dataTables.css";
 
 const { user, repo } = Astro.props;
 
@@ -46,26 +33,6 @@ const UUID = (await import("@Function/Commit/UUID/Fn.js")).default();
 
 <script>
 	import DataTable from "datatables.net-dt";
-	import jszip from "jszip";
-	import pdfmake from "pdfmake";
-
-	// import "datatables.net-buttons-dt";
-	// import "datatables.net-buttons/js/buttons.colVis.mjs";
-	// import "datatables.net-buttons/js/buttons.html5.mjs";
-	// import "datatables.net-buttons/js/buttons.print.mjs";
-	// import "datatables.net-colreorder-dt";
-	// import "datatables.net-fixedcolumns-dt";
-	// import "datatables.net-fixedheader-dt";
-	// import "datatables.net-keytable-dt";
-	// import "datatables.net-responsive-dt";
-	// import "datatables.net-rowgroup-dt";
-	// import "datatables.net-rowreorder-dt";
-	// import "datatables.net-scroller-dt";
-	// import "datatables.net-searchbuilder-dt";
-	// import "datatables.net-searchpanes-dt";
-	// import "datatables.net-select-dt";
-	// import "datatables.net-staterestore-dt";
-
 	
 	document.addEventListener("DOMContentLoaded", () => {
 		class Commit extends HTMLElement {
@@ -105,10 +72,10 @@ const UUID = (await import("@Function/Commit/UUID/Fn.js")).default();
 					})),
 					responsive: true,
 					paging: true,
-					fixedColumns: true,
-					fixedHeader: true,
+					// fixedColumns: true,
+					// fixedHeader: true,
 					scrollCollapse: true,
-					scroller: true,
+					// scroller: true,
 					scrollY: "1000px",
 					processing: true,
 
