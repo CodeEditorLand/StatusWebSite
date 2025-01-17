@@ -30,10 +30,10 @@ export default (await import("astro/config")).defineConfig({
 		concurrency: 9999,
 	},
 	integrations: [
-		// (await import("@astrojs/solid-js")).default({
-		// 	// @ts-ignore
-		// 	devtools: On,
-		// }),
+		(await import("@astrojs/solid-js")).default({
+			// @ts-ignore
+			devtools: On,
+		}),
 		// // @ts-ignore
 		// import.meta.env.MODE === "production"
 		// 	? (await import("astrojs-service-worker")).default()
