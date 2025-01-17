@@ -1,30 +1,48 @@
 ---
-// const { user, repo } = Astro.props;
+import "datatables.net-dt/css/dataTables.dataTables.css";
+import "datatables.net-buttons-dt/css/buttons.dataTables.css";
+import "datatables.net-colreorder-dt/css/colReorder.dataTables.css";
+import "datatables.net-fixedcolumns-dt/css/fixedColumns.dataTables.css";
+import "datatables.net-fixedheader-dt/css/fixedHeader.dataTables.css";
+import "datatables.net-keytable-dt/css/keyTable.dataTables.css";
+import "datatables.net-responsive-dt/css/responsive.dataTables.css";
+import "datatables.net-rowgroup-dt/css/rowGroup.dataTables.css";
+import "datatables.net-rowreorder-dt/css/rowReorder.dataTables.css";
+import "datatables.net-scroller-dt/css/scroller.dataTables.css";
+import "datatables.net-searchbuilder-dt/css/searchBuilder.dataTables.css";
+import "datatables.net-searchpanes-dt/css/searchPanes.dataTables.css";
+import "datatables.net-select-dt/css/select.dataTables.css";
+import "datatables.net-staterestore-dt/css/stateRestore.dataTables.css";
+
+const { user, repo } = Astro.props;
+
+const Last = (
+	await (
+		await fetch(
+			`https://api.github.com/repos/${user}/${repo}/commits?per_page=10`,
+		)
+	).json()
+).map((Commit) => [
+	Commit.message,
+	Commit.commit.author.name,
+	Commit.commit.author.date,
+	Commit.html_url,
+]);
 
 const UUID = (await import("@Function/Commit/UUID/Fn.js")).default();
-
-const Data = [
-	[
-		"Tiger Nixon",
-		"System Architect",
-		"Edinburgh",
-		"5421",
-		"2011/04/25",
-		"$3,120",
-	],
-	[
-		"Garrett Winters",
-		"Director",
-		"Edinburgh",
-		"8422",
-		"2011/07/25",
-		"$5,300",
-	],
-];
 ---
 
-<commit-table data-uuid={UUID} data-data={JSON.stringify(Data)}>
-	<table></table>
+<commit-table data-uuid={UUID} data-data={JSON.stringify(Last)}>
+	<table>
+		<thead>
+			<tr>
+				<th>COMMIT MESSAGE</th>
+				<th>AUTHOR</th>
+				<th>DATE</th>
+				<th>HREF</th>
+			</tr>
+		</thead>
+	</table>
 </commit-table>
 
 <script>
@@ -51,31 +69,19 @@ const Data = [
 
 	class Commit extends HTMLElement {
 		connectedCallback() {
-			let table = new DataTable(
-				`[data-uuid=${this.dataset["uuid"]}] table`,
-				{
-					// data: JSON.parse(this.dataset["data"] ?? "[]"),
-					data: [
-						{
-							"name": "Tiger Nixon",
-							"position": "System Architect",
-							"salary": "$3,120",
-							"start_date": "2011/04/25",
-							"office": "Edinburgh",
-							"extn": "5421",
-						},
-						{
-							"name": "Garrett Winters",
-							"position": "Director",
-							"salary": "$5,300",
-							"start_date": "2011/07/25",
-							"office": "Edinburgh",
-							"extn": "8422",
-						},
-					],
-					// responsive: true,
-				},
-			);
+			new DataTable(`[data-uuid=${this.dataset["uuid"]}] table`, {
+				data: JSON.parse(this.dataset["data"] ?? "[]"),
+				responsive: true,
+				paging: false,
+				fixedColumns: true,
+				fixedHeader: true,
+				scrollCollapse: true,
+				scroller: true,
+				scrollY: "200px",
+
+				// @deprecated
+				// pagingType: "full_numbers",
+			});
 		}
 	}
 
