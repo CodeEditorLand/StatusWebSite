@@ -30,20 +30,20 @@ export default (await import("astro/config")).defineConfig({
 		concurrency: 9999,
 	},
 	integrations: [
-		(await import("@astrojs/solid-js")).default({
-			// @ts-ignore
-			devtools: On,
-		}),
-		// @ts-ignore
-		import.meta.env.MODE === "production"
-			? (await import("astrojs-service-worker")).default()
-			: null,
-		(await import("@astrojs/sitemap")).default(),
-		!On ? (await import("@playform/inline")).default({ Logger: 1 }) : null,
-		!On ? (await import("@playform/format")).default({ Logger: 1 }) : null,
-		!On
-			? (await import("@playform/compress")).default({ Logger: 1 })
-			: null,
+		// (await import("@astrojs/solid-js")).default({
+		// 	// @ts-ignore
+		// 	devtools: On,
+		// }),
+		// // @ts-ignore
+		// import.meta.env.MODE === "production"
+		// 	? (await import("astrojs-service-worker")).default()
+		// 	: null,
+		// (await import("@astrojs/sitemap")).default(),
+		// !On ? (await import("@playform/inline")).default({ Logger: 1 }) : null,
+		// !On ? (await import("@playform/format")).default({ Logger: 1 }) : null,
+		// !On
+		// 	? (await import("@playform/compress")).default({ Logger: 1 })
+		// 	: null,
 	],
 	experimental: {
 		clientPrerender: true,
