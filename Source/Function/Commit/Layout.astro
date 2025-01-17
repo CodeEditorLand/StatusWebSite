@@ -13,10 +13,10 @@ let Last =
 (await import("@Function/Commit/Cache/Set/Fn.js")).default(Cache, Last);
 
 Last = Last.map((Commit) => ({
-	"Commit Message": Commit.message ?? "",
-	"Author": Commit.commit.author.name,
-	"Date": Commit.commit.author.date,
-	"HREF": Commit.html_url,
+	"Commit Message": Commit["message"] ?? "",
+	"Author": Commit["commit"]["author"]["name"],
+	"Date": Commit["commit"]["author"]["date"],
+	"HREF": Commit["html_url"],
 }));
 
 const UUID = (await import("@Function/Commit/UUID/Fn.js")).default();
@@ -33,7 +33,7 @@ const UUID = (await import("@Function/Commit/UUID/Fn.js")).default();
 
 <script>
 	import DataTable from "datatables.net-dt";
-	
+
 	document.addEventListener("DOMContentLoaded", () => {
 		class Commit extends HTMLElement {
 			connectedCallback() {
@@ -42,7 +42,10 @@ const UUID = (await import("@Function/Commit/UUID/Fn.js")).default();
 				new DataTable(`[data-uuid=${UUID}] table`, {
 					columns: [
 						{ title: "COMMIT MESSAGE", data: "Commit Message" },
-						{ title: "AUTHOR", data: "Author" },
+						{
+							title: "AUTHOR",
+							data: "Author",
+						},
 						{
 							title: "DATE",
 							render: (Data) =>
