@@ -32,7 +32,7 @@
 		"@tailwindcss/aspect-ratio": "0.4.2",
 		"@tailwindcss/forms": "0.5.10",
 		"@tailwindcss/typography": "0.5.16",
-		"astro": "5.1.9",
+		"astro": "5.2.3",
 		"astro-capo": "0.0.1",
 		"astrojs-service-worker": "2.0.0",
 		"autoprefixer": "10.4.20",
@@ -72,7 +72,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/ts-plugin": "1.10.4",
-		"@octokit/types": "13.7.0",
+		"@octokit/types": "13.8.0",
 		"@types/jquery": "^3.5.32"
 	},
 	"publishConfig": {
